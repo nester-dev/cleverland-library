@@ -1,0 +1,12 @@
+.active {
+  h5 {
+    @apply bg-mainGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  hr {
+    @apply visible opacity-100 w-full border-orange transition-all;
+  }
+}

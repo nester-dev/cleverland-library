@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "fonts";
+@import "select";
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  @apply text-dark tracking-small h-screen;
+}
+
+html.scroll-fixed body {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  > main {
+    flex: 1 1 auto;
+  }
+}
+
+.swiper-pagination {
+  bottom: 0 !important;
+  z-index: 1000 !important;
+
+  @media (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.swiper-pagination-bullet {
+  background: #BFC4C9 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #363636 !important;
+}

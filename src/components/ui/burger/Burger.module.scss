@@ -1,0 +1,24 @@
+.burger {
+  span {
+    @apply bg-dark rounded-full;
+    width: 26px;
+    height: 3px;
+    transition: transform ease-out .3s;
+  }
+}
+
+.active.burger span {
+  @apply bg-orange;
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    &:nth-child(2) {
+      transform: scale(0.1) translate(12px, 6px);
+
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
