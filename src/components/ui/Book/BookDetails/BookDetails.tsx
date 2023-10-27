@@ -13,7 +13,7 @@ const BookDetails: FC = () => {
     state.selectedBook,
     state.setActiveModal,
   ]);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(!!book?.comments?.length);
 
   return (
     <div className="mt-[42px] flex flex-col gap-6 md:gap-[52px] lg:gap-[62px]">
@@ -27,7 +27,13 @@ const BookDetails: FC = () => {
 
       <div>
         <DetailsItem
-          heading={<FeedbacksToggle isOpen={isOpen} setIsOpen={setIsOpen} />}
+          heading={
+            <FeedbacksToggle
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
+              isCommentsExists={!!book?.comments?.length}
+            />
+          }
         >
           <BookFeedback isOpen={isOpen} />
         </DetailsItem>

@@ -18,6 +18,13 @@ export const BookService = {
     });
   },
 
+  async getBooksByCategory(id: string) {
+    return instance<IBook[]>({
+      url: `${UrlConfig.CATEGORIES}/${id}`,
+      method: HttpMethod.GET,
+    });
+  },
+
   async getBookById(id: string) {
     return instance<IBook>({
       url: `${UrlConfig.BOOKS}/${id}`,

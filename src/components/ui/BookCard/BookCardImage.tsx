@@ -3,7 +3,7 @@ import cn from "clsx";
 import { GridType } from "@/components/ui/GridControls/types.ts";
 import { useMainStore } from "@/store/mainStore.ts";
 
-const BookCardImage: FC<{ image: string }> = ({ image }) => {
+const BookCardImage: FC<{ image?: string }> = ({ image }) => {
   const gridType = useMainStore(state => state.gridType);
 
   const isRow = gridType === GridType.row;

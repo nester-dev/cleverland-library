@@ -5,7 +5,7 @@ import { IUser, UpdateUserRequest } from "@/shared/types/user.interface.ts";
 export const UserService = {
   async getCurrentUser() {
     return instance<IUser>({
-      url: `${UrlConfig.USER}/me`,
+      url: `${UrlConfig.ME}`,
       method: "GET",
     });
   },

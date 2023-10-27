@@ -2,10 +2,11 @@ import { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { AnimatePresence } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
+import { useNavigate } from "react-router";
 import FormTitle from "@/components/ui/form/FormTitle.tsx";
 import AuthenticationType from "@/components/ui/form/AuthenticationType.tsx";
 import FormStepsTitle from "@/components/ui/form/FormStepsTitle.tsx";
-import { TOTAL_FORM_STEPS } from "@/shared/constants.ts";
+import { Routes, TOTAL_FORM_STEPS } from "@/shared/constants.ts";
 import FormWrapper from "@/components/ui/form/FormWrapper.tsx";
 import { RegisterFormFields } from "@/components/ui/form/types.ts";
 import FormStep from "@/components/ui/form/FormStep.tsx";
@@ -14,6 +15,7 @@ import { AuthService } from "@/services/auth/auth.service.ts";
 import FormButton from "@/components/ui/form/FormButton.tsx";
 
 const Registration: FC = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -21,7 +23,12 @@ const Registration: FC = () => {
   } = useForm<RegisterFormFields>({ reValidateMode: "onSubmit" });
   const { mutate, isLoading } = useMutation(
     ["register user"],
-    AuthService.register
+    AuthService.register,
+    {
+      onSuccess: () => {
+        navigate(Routes.AUTH, { replace: true });
+      },
+    }
   );
   const [step, setStep] = useState(1);
 

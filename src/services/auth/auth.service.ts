@@ -33,7 +33,7 @@ export const AuthService = {
       saveToStorage(response.data.jwt);
 
       const userResponse = await axios.get(
-        `${import.meta.env.VITE_API_URL}${UrlConfig.USER}/me`,
+        `${import.meta.env.VITE_API_URL}${UrlConfig.ME}`,
         {
           headers: {
             Authorization: `Bearer ${response.data.jwt}`,

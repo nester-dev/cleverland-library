@@ -22,7 +22,7 @@ const AuthProvider: FC = () => {
     } else {
       setUser(user);
     }
-  }, []);
+  }, [token, user, location.pathname]);
 
   return !token ? null : <Layout />;
 };

@@ -8,16 +8,34 @@ import { ReactComponent as Arrow } from "@/assets/icons/arrow-black.svg";
 export interface FeedbacksToggleProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  isCommentsExists: boolean;
 }
 
-const FeedbacksToggle: FC<FeedbacksToggleProps> = ({ isOpen, setIsOpen }) => {
+const FeedbacksToggle: FC<FeedbacksToggleProps> = ({
+  isOpen,
+  setIsOpen,
+  isCommentsExists,
+}) => {
   const book = useMainStore(state => state.selectedBook);
 
+  const handleToggle = () => {
+    if (isCommentsExists) {
+      setIsOpen(prev => !prev);
+    }
+  };
+
   return (
-    <button type="button" onClick={() => setIsOpen(prev => !prev)}>
+    <button type="button" onClick={handleToggle}>
       <DetailsHeading title="Отзывы">
-        <FeedbacksCount count={book?.comments?.length} />
-        <Arrow className={cn("ml-4 transition-all", !isOpen && "rotate-180")} />
+        <FeedbacksCount count={book?.comments?.length || 0} />
+        {isCommentsExists && (
+          <Arrow
+            className={cn(
+              "ml-4 fill-dark transition-all",
+              !isOpen && "rotate-180"
+            )}
+          />
+        )}
       </DetailsHeading>
     </button>
   );
