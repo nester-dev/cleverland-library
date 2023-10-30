@@ -41,12 +41,10 @@ const DateModal: FC<Props> = ({ type }) => {
     setIsLoading(true);
     if (type === ModalTypes.DATE && selectedBook && user && selectedDay) {
       mutate({
-        data: {
-          book: String(selectedBook.id),
-          customer: String(user.id),
-          dateOrder: selectedDay,
-          order: true,
-        },
+        book: String(selectedBook.id),
+        customer: String(user.id),
+        dateOrder: selectedDay,
+        order: true,
       });
     }
   };

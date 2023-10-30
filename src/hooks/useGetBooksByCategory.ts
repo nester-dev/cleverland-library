@@ -6,7 +6,7 @@ export const useGetBooksByCategory = (id: string) => {
     ["books", "get books by category", id],
     () => BookService.getBooksByCategory(id),
     {
-      enabled: !!id && id !== "all",
+      enabled: !!id && id !== "Все книги",
       select: ({ data }) =>
         data?.sort((book1, book2) => book2.rating - book1.rating),
       cacheTime: 0,

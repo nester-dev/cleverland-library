@@ -11,4 +11,18 @@ export const CommentService = {
       data,
     });
   },
+
+  async updateFeedback({
+    commentId,
+    data,
+  }: {
+    commentId: string;
+    data: IFeedbackRequest;
+  }) {
+    return instance({
+      url: `${UrlConfig.COMMENTS}/${commentId}`,
+      method: HttpMethod.PUT,
+      data,
+    });
+  },
 };

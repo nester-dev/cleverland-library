@@ -22,21 +22,17 @@ export interface IFeedback {
 }
 
 export interface IFeedbackRequest {
-  data: {
-    book: number | string;
-    rating: number;
-    text: string;
-    user: IFeedbackUser;
-  };
+  bookId: number | string;
+  rating: number;
+  text: string;
+  userId: IFeedbackUser;
 }
 
 export interface IBookingRequest {
-  data: {
-    order?: boolean;
-    dateOrder: Date;
-    book: string;
-    customer: string;
-  };
+  order?: boolean;
+  dateOrder: Date;
+  book: string;
+  customer: string;
 }
 
 export interface IBooking {

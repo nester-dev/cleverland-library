@@ -9,8 +9,9 @@ import FeedbacksToggle from "@/components/ui/Book/BookDetails/FeedbacksToggle/Fe
 import { ModalTypes } from "@/components/ui/modal/types.ts";
 
 const BookDetails: FC = () => {
-  const [book, setActiveModal] = useMainStore(state => [
+  const [book, userComment, setActiveModal] = useMainStore(state => [
     state.selectedBook,
+    state.userComment,
     state.setActiveModal,
   ]);
   const [isOpen, setIsOpen] = useState(!!book?.comments?.length);
@@ -43,7 +44,7 @@ const BookDetails: FC = () => {
           size="large"
           className="max-w-[350px]"
         >
-          оценить книгу
+          {userComment?.isExists ? "Изменить отзыв" : "Оставить отзыв"}
         </Button>
       </div>
     </div>

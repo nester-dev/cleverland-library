@@ -14,6 +14,10 @@ export const useMainStore = create<MainStore>()(
     selectedBook: null,
     responseMessage: null,
     activeModal: null,
+    userComment: {
+      isExists: false,
+      commentId: null,
+    },
     setGridType: type => set({ gridType: type }),
     setOpenBurger: isOpen => set({ isBurgerOpen: isOpen }),
     setSearchTerm: term => set({ searchTerm: term }),
@@ -22,5 +26,6 @@ export const useMainStore = create<MainStore>()(
     setSelectedBook: book => set({ selectedBook: book }),
     setResponseMessage: message => set({ responseMessage: message }),
     setActiveModal: modal => set({ activeModal: modal }),
+    setIsCommentExists: userComment => set({ userComment }),
   }))
 );

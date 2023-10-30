@@ -11,7 +11,13 @@ const BookImage: FC<BookPreviewProps> = ({ images }) => {
         styles.image
       )}
     >
-      {!!images?.length && <img src={images.pop()?.url} alt="preview" />}
+      {!!images?.length && (
+        <img
+          className="h-full w-full object-center"
+          src={images.at(0)?.url}
+          alt="preview"
+        />
+      )}
     </div>
   );
 };

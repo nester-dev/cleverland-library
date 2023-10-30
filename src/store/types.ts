@@ -14,6 +14,10 @@ export interface MainStore {
   selectedBook: IBook | null;
   responseMessage: ResponseMessages | null;
   activeModal: ModalTypes | null;
+  userComment: {
+    isExists: boolean;
+    commentId: string | null;
+  };
   setGridType: (type: GridType) => void;
   setOpenBurger: (isOpen: boolean) => void;
   setAllBooks: (books: IBook[]) => void;
@@ -22,6 +26,10 @@ export interface MainStore {
   setSelectedBook: (book: IBook) => void;
   setResponseMessage: (message?: ResponseMessages | null) => void;
   setActiveModal: (modal: ModalTypes | null) => void;
+  setIsCommentExists: (userComment: {
+    isExists: boolean;
+    commentId: string | null;
+  }) => void;
 }
 
 export interface UserStore {

@@ -7,5 +7,5 @@ export enum UrlConfig {
   BOOKING = "bookings",
   USER = "users",
   UPLOAD = "upload",
-  ME = "auth/me",
+  ME = "users/me",
 }

@@ -24,7 +24,7 @@ const BookList: FC = () => {
     isSuccess: booksByCategorySuccess,
     error: booksByCategoryError,
     isFetching: booksByCategoryLoading,
-  } = useGetBooksByCategory(state?.path);
+  } = useGetBooksByCategory(state?.name);
 
   const [
     gridType,
