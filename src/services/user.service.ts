@@ -18,10 +18,16 @@ export const UserService = {
     });
   },
 
-  async uploadAvatar(data?: FormData) {
+  async uploadAvatar({
+    userId,
+    data,
+  }: {
+    userId?: string | number;
+    data?: FormData;
+  }) {
     return instance<{ id: number }[]>({
-      url: UrlConfig.UPLOAD,
-      method: "POST",
+      url: `${UrlConfig.UPLOAD}/${userId}`,
+      method: "PUT",
       data,
       headers: { "Content-Type": "multipart/form-data" },
     });

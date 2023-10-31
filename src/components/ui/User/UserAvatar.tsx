@@ -1,13 +1,11 @@
 import { ChangeEvent, FC, useRef } from "react";
 import cn from "clsx";
-import { useMutation } from "@tanstack/react-query";
 import { ReactComponent as AvatarPlaceholderSmall } from "@/assets/icons/avatar-placeholder-small.svg";
 import { ReactComponent as AvatarPlaceholderBig } from "@/assets/icons/avatar-placeholder-big.svg";
 import { ReactComponent as AddPhoto } from "@/assets/icons/add-photo.svg";
 import { IUser } from "@/shared/types/user.interface.ts";
-import { UserService } from "@/services/user.service.ts";
-import { useUpdateUser } from "@/hooks/useUpdateUser.ts";
 import { ResponseMessages } from "@/shared/constants.ts";
+import { useUpdateAvatar } from "@/hooks/useUpdateAvatar.ts";
 
 interface Props {
   user?: IUser | null;
@@ -21,25 +19,17 @@ const UserAvatar: FC<Props> = ({
   editableAvatar = false,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const { mutate: updateUser } = useUpdateUser(
+
+  const { mutate } = useUpdateAvatar(
     ResponseMessages.AVATAR_UPDATE_SUCCESS,
     ResponseMessages.AVATAR_UPDATE_ERROR
   );
 
-  const { mutate } = useMutation(["upload avatar"], UserService.uploadAvatar, {
-    onSuccess: ({ data }) =>
-      updateUser({
-        userId: String(user?.id),
-        data: { avatar: data?.pop()?.id },
-      }),
-  });
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      const blob = new Blob([event.target.files[0]], { type: "image/*" });
       const formData = new FormData();
-      formData.append("files", blob);
-      mutate(formData);
+      formData.append("files", event.target.files[0]);
+      mutate({ userId: user?.id, data: formData });
       event.target.value = "";
     }
   };
