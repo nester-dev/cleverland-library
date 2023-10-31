@@ -6,7 +6,7 @@ export const getBookStatus = (
   book?: IBook | null,
   myId?: number
 ): [BookStatus, string] => {
-  if (!book?.booking) {
+  if (!book?.booking?.customerId) {
     return [BookStatus.Available, "забронировать"];
   }
 

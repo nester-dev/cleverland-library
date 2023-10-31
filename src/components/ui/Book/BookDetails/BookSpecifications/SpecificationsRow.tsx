@@ -14,7 +14,7 @@ const SpecificationsRow: FC<SpecificationsRowProps> = ({ info, title }) => {
       <Typo fw="semibold" color="gray-500">
         {title}
       </Typo>
-      <Typo className="max-w-[445px]">{transformedInfo}</Typo>
+      <Typo className="max-w-[445px]">{transformedInfo || "-"}</Typo>
     </div>
   );
 };
