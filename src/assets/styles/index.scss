@@ -46,3 +46,13 @@ html.scroll-fixed body {
 .swiper-pagination-bullet-active {
   background: #363636 !important;
 }
+
+@media (min-width: 1024px) {
+  .scroll-class {
+    overflow-y: auto;
+  }
+
+  .scroll-class::-webkit-scrollbar {
+    background-color:transparent
+  }
+}

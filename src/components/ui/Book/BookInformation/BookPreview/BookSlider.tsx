@@ -18,7 +18,7 @@ const BookSlider: FC<BookPreviewProps> = ({ images }) => {
     <div>
       <Swiper
         spaceBetween={10}
-        thumbs={thumbsSwiper && { swiper: thumbsSwiper }}
+        thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
         modules={[FreeMode, Thumbs, Pagination]}
         pagination
         className={cn(styles.image, "mb-4 !pb-10 md:!pb-0")}
@@ -55,7 +55,7 @@ const BookSlider: FC<BookPreviewProps> = ({ images }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="bg-sliderGradient pointer-events-none absolute inset-0 z-10 !hidden md:!block" />
+        <div className="pointer-events-none absolute inset-0 z-10 !hidden bg-sliderGradient md:!block" />
       </div>
     </div>
   );
