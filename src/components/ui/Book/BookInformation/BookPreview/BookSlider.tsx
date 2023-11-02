@@ -35,7 +35,7 @@ const BookSlider: FC<BookPreviewProps> = ({ images }) => {
       </Swiper>
       <div className="relative hidden md:block">
         <Swiper
-          onSwiper={swiper => setThumbsSwiper(swiper)}
+          onSwiper={setThumbsSwiper}
           spaceBetween={30}
           slidesPerView={4}
           freeMode

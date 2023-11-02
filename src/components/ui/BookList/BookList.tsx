@@ -43,7 +43,7 @@ const BookList: FC = () => {
   ]);
   const [books, setBooks] = useState<IBook[]>(fetchedBooks);
 
-  const sortBooks = useSortBooks(sorting, books);
+  const sortBooks = useSortBooks();
 
   useEffect(() => {
     if (isSuccess && (!state?.path || state?.path === "all")) {
@@ -58,7 +58,7 @@ const BookList: FC = () => {
   }, [isSuccess, booksByCategorySuccess]);
 
   useEffect(() => {
-    setBooks(sortBooks());
+    setBooks(sortBooks(sorting, books));
   }, [sorting]);
 
   useEffect(() => {
