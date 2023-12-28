@@ -8,7 +8,7 @@ export function hideDocumentScroll(hide: boolean) {
       marginRight: hide ? `${scrollbarWidth}px` : "unset",
     });
 
-    html.classList[hide ? "add" : "remove"]("scroll-fixed");
-    header.classList[hide ? "add" : "remove"]("scroll-class");
+    html?.classList[hide ? "add" : "remove"]("scroll-fixed");
+    header?.classList[hide ? "add" : "remove"]("scroll-class");
   }
 }
