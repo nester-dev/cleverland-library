@@ -1,7 +1,7 @@
 import { FC } from "react";
+import BookDetails from "./BookDetails/BookDetails.tsx";
 import BookDescription from "./BookInformation/BookDescription.tsx";
 import BookInformation from "./BookInformation/BookInformation.tsx";
-import BookDetails from "./BookDetails/BookDetails.tsx";
 import BookPreview from "./BookInformation/BookPreview/BookPreview.tsx";
 
 const Book: FC = () => {

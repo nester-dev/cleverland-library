@@ -22,7 +22,7 @@ const Login: FC = () => {
   } = useForm<LoginFormFields>({ reValidateMode: "onSubmit" });
   const navigate = useNavigate();
 
-  const { mutate, isLoading, error } = useMutation(
+  const { mutate, isLoading, error, reset } = useMutation(
     ["login"],
     AuthService.login,
     {
@@ -43,7 +43,7 @@ const Login: FC = () => {
   return (
     <FormWrapper submit={handleSubmit(onSubmit)} isLoading={isLoading}>
       {isServerError ? (
-        <LoginError />
+        <LoginError onClick={() => reset()} />
       ) : (
         <>
           <FormTitle>Вход в личный кабинет</FormTitle>

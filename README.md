@@ -1,6 +1,6 @@
 ## Cleverland Library
 
-![Task Manager App!](https://i.postimg.cc/436L3LGH/chrome-3wvg-LHGo-Gm.png "Cleverland Library")
+![Cleverland Library!](https://images.squidge.org/images/2024/08/22/chrome_wUaDnWuEN3.png "Cleverland Library")
 
 ## About
 Cleverland library is an online platform where you can borrow a book.
